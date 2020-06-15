@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CoronaSon.Models.Test>
+
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "tcreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Durum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pozitif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Negatif)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pozitif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Negatif)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Tedit", new { id=item.Id }) |
+            @Html.ActionLink("Sil", "Tdelete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
